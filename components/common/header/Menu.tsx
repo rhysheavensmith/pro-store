@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { ShoppingCart, UserIcon, EllipsisVertical } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ShoppingCart, UserIcon, MenuIcon } from "lucide-react";
+import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -34,11 +34,16 @@ const Menu = () => {
       {/* Mobile Nav */}
       <nav className="md:hidden">
         <Sheet>
-          <SheetTrigger className="align-middle">
-            <EllipsisVertical className="h-6 w-6" />
+          <SheetTrigger
+            className={
+              buttonVariants({ variant: "ghost", size: "icon" }) +
+              " align-middle"
+            }
+          >
+            <MenuIcon className="h-6 w-6" />
           </SheetTrigger>
           <SheetContent className="flex flex-col items-start px-5">
-            <div className="flex justify-between items-center gap-4 mt-1">
+            <div className="flex justify-between items-center gap-2 mt-3">
               <SheetTitle>Menu</SheetTitle>
               <ModeToggle />
             </div>
@@ -53,7 +58,7 @@ const Menu = () => {
                 Cart
               </Link>
             </Button>
-            <Button asChild className="mt-2 w-full justify-start">
+            <Button asChild className="w-full justify-start">
               <Link href="/sign-in">
                 <UserIcon className="mr-2 h-4 w-4" />
                 Sign In

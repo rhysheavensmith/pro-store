@@ -6,7 +6,6 @@
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
   --max-width-wrapper: 80rem;
   --spacing-base: 0.25rem;
   --font-size-xl: 1.25rem;
@@ -155,7 +154,7 @@
   body {
     background-color: var(--background, var(--background-fallback));
     color: var(--foreground, var(--foreground-fallback));
-    font-family: var(--font-sans);
+    font-family: var(--font-inter);
   }
 }
 
