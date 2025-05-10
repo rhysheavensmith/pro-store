@@ -1,6 +1,8 @@
-import { type Prisma } from "@prisma/client";
+import { Product } from "@/types";
 
-const sampleData: { products: Prisma.ProductCreateManyInput[] } = {
+type ProductSeed = Omit<Product, "id" | "createdAt">;
+
+const sampleData: { products: ProductSeed[] } = {
   products: [
     {
       name: "Polo Sporting Stretch Shirt",
@@ -13,6 +15,8 @@ const sampleData: { products: Prisma.ProductCreateManyInput[] } = {
       ],
       price: "59.99",
       brand: "Polo",
+      rating: "4.5",
+      numReviews: 10,
       stock: 5,
       isFeatured: true,
       banner: "banner-1.jpg",
@@ -26,8 +30,10 @@ const sampleData: { products: Prisma.ProductCreateManyInput[] } = {
         "/images/sample-products/p2-1.jpg",
         "/images/sample-products/p2-2.jpg",
       ],
-      price: "85.90",
+      price: "85.9",
       brand: "Brooks Brothers",
+      rating: "4.2",
+      numReviews: 8,
       stock: 10,
       isFeatured: true,
       banner: "banner-2.jpg",
@@ -43,6 +49,8 @@ const sampleData: { products: Prisma.ProductCreateManyInput[] } = {
       ],
       price: "99.95",
       brand: "Tommy Hilfiger",
+      rating: "4.9",
+      numReviews: 3,
       stock: 0,
       isFeatured: false,
       banner: null,
@@ -58,6 +66,8 @@ const sampleData: { products: Prisma.ProductCreateManyInput[] } = {
       ],
       price: "39.95",
       brand: "Calvin Klein",
+      rating: "3.6",
+      numReviews: 5,
       stock: 10,
       isFeatured: false,
       banner: null,
@@ -73,6 +83,8 @@ const sampleData: { products: Prisma.ProductCreateManyInput[] } = {
       ],
       price: "79.99",
       brand: "Polo",
+      rating: "4.7",
+      numReviews: 18,
       stock: 6,
       isFeatured: false,
       banner: null,
@@ -88,6 +100,8 @@ const sampleData: { products: Prisma.ProductCreateManyInput[] } = {
       ],
       price: "99.99",
       brand: "Polo",
+      rating: "4.6",
+      numReviews: 12,
       stock: 8,
       isFeatured: true,
       banner: null,
