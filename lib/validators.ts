@@ -20,3 +20,16 @@ export const insertProductSchema = z.object({
   banner: z.string().nullable(),
   price: validatedCurrency,
 });
+
+// export const userSchema = z.object({
+//   id: z.string().uuid(),
+//   name: z.string().min(1),
+//   email: z.string().email(),
+//   role: z.enum(["user", "admin"]),
+//   emailVerified: z.date().nullable(),
+//   image: z.string().nullable(),
+//   address: z.any().nullable(),
+//   paymentMethod: z.string().nullable(),
+//   createdAt: z.date(),
+//   updatedAt: z.date(),
+// });

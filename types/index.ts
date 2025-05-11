@@ -7,3 +7,8 @@ export type Product = z.infer<typeof insertProductSchema> & {
   rating: string;
   numReviews: number;
 };
+
+// export type User = z.infer<typeof userSchema> & {
+//   id: string;
+//   createdAt: Date;
+// };

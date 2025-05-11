@@ -1,8 +1,23 @@
 import { Product } from "@/types";
+import { hashSync } from "bcrypt-ts-edge";
 
 type ProductSeed = Omit<Product, "id" | "createdAt">;
 
-const sampleData: { products: ProductSeed[] } = {
+const sampleData: { products: ProductSeed[]; users: any[] } = {
+  users: [
+    {
+      name: "John",
+      email: "admin@example.com",
+      password: hashSync("123456", 10),
+      role: "admin",
+    },
+    {
+      name: "Jane",
+      email: "jane@example.com",
+      password: hashSync("123456", 10),
+      role: "user",
+    },
+  ],
   products: [
     {
       name: "Polo Sporting Stretch Shirt",
