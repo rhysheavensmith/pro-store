@@ -3,6 +3,7 @@ import { hashSync } from "bcrypt-ts-edge";
 
 type ProductSeed = Omit<Product, "id" | "createdAt">;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const sampleData: { products: ProductSeed[]; users: any[] } = {
   users: [
     {
