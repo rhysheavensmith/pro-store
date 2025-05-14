@@ -33,26 +33,30 @@ const CredentialsSignInForm = () => {
       <input type="hidden" name="callbackUrl" value={callbackUrl} />
       <div className="space-y-6">
         <div>
-          <Label htmlFor="email">Email</Label>
+          <Label htmlFor="email" className="mb-1">
+            Email
+          </Label>
           <Input
             id="email"
             name="email"
             type="email"
             autoComplete="email"
             required
-            defaultValue={signInDefaultValues.email}
+            placeholder={signInDefaultValues.email}
           />
         </div>
 
         <div>
-          <Label htmlFor="password">Password</Label>
+          <Label htmlFor="password" className="mb-1">
+            Password
+          </Label>
           <Input
             id="password"
             name="password"
             type="password"
             autoComplete="current-password"
             required
-            defaultValue={signInDefaultValues.password}
+            placeholder={signInDefaultValues.password}
           />
         </div>
 

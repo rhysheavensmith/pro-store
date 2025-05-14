@@ -19,4 +19,5 @@ export const signUpDefaultValues = {
   name: "John Doe",
   email: "john.doe@example.com",
   password: "123456",
+  confirmPassword: "123456",
 };

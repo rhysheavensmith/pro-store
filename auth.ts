@@ -6,6 +6,13 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { prisma } from "@/db/prisma";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 
+// type UserWithRole = {
+//   id: string;
+//   email: string;
+//   name: string | null;
+//   role: string;
+// };
+
 export const config = {
   pages: {
     signIn: "/sign-in",

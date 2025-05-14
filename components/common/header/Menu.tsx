@@ -1,7 +1,5 @@
-"use client";
-
 import Link from "next/link";
-import { ShoppingCart, UserIcon, MenuIcon } from "lucide-react";
+import { ShoppingCart, MenuIcon } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Sheet,
@@ -10,7 +8,7 @@ import {
   SheetTitle,
 } from "@/components/ui/sheet";
 import ModeToggle from "./ModeToggle";
-
+import UserButton from "./user-button";
 const Menu = () => {
   return (
     <div className="flex justify-end gap-3">
@@ -23,12 +21,7 @@ const Menu = () => {
             Cart
           </Link>
         </Button>
-        <Button asChild>
-          <Link href="/sign-in">
-            <UserIcon className="mr-2 h-4 w-4" />
-            Sign In
-          </Link>
-        </Button>
+        <UserButton />
       </nav>
 
       {/* Mobile Nav */}
@@ -58,12 +51,7 @@ const Menu = () => {
                 Cart
               </Link>
             </Button>
-            <Button asChild className="w-full justify-start">
-              <Link href="/sign-in">
-                <UserIcon className="mr-2 h-4 w-4" />
-                Sign In
-              </Link>
-            </Button>
+            <UserButton />
           </SheetContent>
         </Sheet>
       </nav>
