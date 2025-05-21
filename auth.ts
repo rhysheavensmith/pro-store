@@ -5,13 +5,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 
 import { prisma } from "@/db/prisma";
 import { PrismaAdapter } from "@auth/prisma-adapter";
-
-// type UserWithRole = {
-//   id: string;
-//   email: string;
-//   name: string | null;
-//   role: string;
-// };
+import { NextResponse } from "next/server";
 
 export const config = {
   pages: {
@@ -93,6 +87,22 @@ export const config = {
       }
 
       return session;
+    },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    authorized({ request }: any) {
+      if (!request.cookies.get("sessionCartId")) {
+        const sessionCartId = crypto.randomUUID();
+
+        const newRequestHeaders = new Headers(request.headers);
+        const response = NextResponse.next({
+          request: { headers: newRequestHeaders },
+        });
+
+        response.cookies.set("sessionCartId", sessionCartId);
+        return response;
+      }
+
+      return true;
     },
   },
 } satisfies NextAuthConfig;

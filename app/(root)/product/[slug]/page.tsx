@@ -3,8 +3,10 @@ import ProductPrice from "@/components/common/product/product-price";
 import ProductImages from "@/components/common/product/product-images";
 import { Card, CardContent } from "@/components/ui/card";
 import { getProductBySlug } from "@/lib/actions/product.actions";
-import { Button } from "@/components/ui/button";
+import { getMyCart } from "@/lib/actions/cart.actions";
 import { Badge } from "@/components/ui/badge";
+import AddToCart from "@/components/common/product/add-to-cart";
+import { Cart } from "@/types";
 
 const ProductDetailsPage = async (props: {
   params: Promise<{ slug: string }>;
@@ -12,6 +14,8 @@ const ProductDetailsPage = async (props: {
   const { slug } = await props.params;
   const product = await getProductBySlug(slug);
   if (!product) notFound();
+
+  const cart = await getMyCart();
 
   return (
     <section>
@@ -64,7 +68,17 @@ const ProductDetailsPage = async (props: {
               </div>
               {product.stock > 0 && (
                 <div className="mt-4">
-                  <Button className="w-full">Add to cart</Button>
+                  <AddToCart
+                    cart={cart as Cart}
+                    item={{
+                      productId: product.id,
+                      name: product.name,
+                      slug: product.slug,
+                      price: product.price,
+                      qty: 1,
+                      image: product.images?.[0] ?? "",
+                    }}
+                  />
                 </div>
               )}
             </CardContent>
